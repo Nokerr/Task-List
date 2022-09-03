@@ -17,7 +17,7 @@ const ToDoLis: React.FC = () => {
     }, [])
 
     useEffect(() => {
-        if (todos.length >= 1) {
+        if (todos.length > 0) {
             localStorage.setItem('todos', JSON.stringify(todos))
         }
     }, [todos])

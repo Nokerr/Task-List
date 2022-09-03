@@ -13,7 +13,7 @@ body {
     margin: 0 auto;
     margin-top: 70px;
     max-width: 500px;
-    background-color: rgb(75, 76, 99);
+
 }
 
 .todo {
@@ -24,11 +24,14 @@ body {
     &__input-block {
         display: flex;
         align-items: center;
-        width: 500px;
+
+        label {
+            width: 85%;
+        }
     }
 
     &__input {
-        width: 400px;
+        width: 85%;
         height: 30px;
         border-radius: 10px;
         border: none;
@@ -72,7 +75,6 @@ body {
 
         &-items {
             li {
-                width: 460px;
                 min-height: 30px;
                 border-radius: 10px;
                 background-color: rgb(50, 50, 64);

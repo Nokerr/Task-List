@@ -1,5 +1,5 @@
 import React from 'react';
-import { useAppDispatch } from '../hooks/hook';
+import { useAppDispatch, useAppSelector } from '../hooks/hook';
 import { removeToDo, toggleTodo } from '../redux/slices/toDoSlice'
 
 interface ToDoItemProps {
@@ -12,6 +12,14 @@ interface ToDoItemProps {
 const TodoItem: React.FC<ToDoItemProps> = ({ id, count, text, complited }) => {
 
     const dispatch = useAppDispatch()
+    const todos = useAppSelector(state => state.todoReducer.totdos)
+
+    const remouveItem = () => {
+        dispatch(removeToDo(id))
+        if (todos.length) {
+            localStorage.setItem('todos', JSON.stringify([]))
+        }
+    }
 
     return (
         <li>
@@ -28,7 +36,7 @@ const TodoItem: React.FC<ToDoItemProps> = ({ id, count, text, complited }) => {
             </div>
             <div
                 className='right-part'
-                onClick={() => dispatch(removeToDo(id))}>
+                onClick={remouveItem}>
                 Del
             </div>
         </li>
