@@ -32,7 +32,7 @@ const TodoItem: React.FC<ToDoItemProps> = ({ id, count, text, complited }) => {
                 <div
                     className='todo__text'
                     onClick={() => dispatch(toggleTodo(id))}
-                >{`  ${count}.  ${text}`}.</div>
+                >{`  ${count + 1}.  ${text}`}.</div>
             </div>
             <div
                 className='right-part'
